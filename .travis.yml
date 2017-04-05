@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+- '2.2'
+script:
+- bundle exec rake test
+sudo: false
+notifications:
+  hipchat:
+    on_success: change
+    on_failure: always
+    rooms:
+      secure: oXoaxUwgY61N2HQYd9x3uakh+Vrq5JftzSIevrdfbiAVFEE5rbjQZZSv1ax9QWxy/jwkpLk49hzl6Y121Ub7K7X/IOMCslxiJPapUcyh9sy7+mYQ6r0TlWt+QVplu4fJIMLcDrVo12aaKNlVIewWj2e3i4OC1pCdyg/uVu3mzvj58bXBxNUM3kyOjCu9J6gqf7AQMCNlGAe+TF16ij8i9jc0nfjbv9eEMEyR9l6e0EO/c7/UA98BkZPAkrLcu3f68C9d+YqPBn8qERfx3W3g056P7TnHm9R47xFg19ZmH1RE4Us313HxGYuc66lpqxSNdv3FTBgN79Tc6rU3XEUqxFyUJTxB3H/UXOKBNrMaSSCPVCSEHRjbOyedH5pS3kCB6xMG3bjJOnDNXF1i4HV234/ckk8Iwq1BzerSa9Yq9wvoRS+dG98x2/hY3OvrR9k+jAP6YXmWTRxs5DLPOkkBBxtFOAP14KyqK8N0nYjBW4LJnWkB2ks54UJXRlOFigwoZOwPKt3fvri6cTxNpLVplNdnbzHeoEg0EhBdy4QnNFS+Mfre3v78Y6pMLyt2NgW1Pl7Hr8SNGux6QCAvl3nC16PQgnliHR976QuDYQXxgnGL/3NuRWZ4v8FEga7bMYsgIaL8qPd56UDD6EPx3TkVW87kRyiOUGGjvQKJkz4eMM0=
