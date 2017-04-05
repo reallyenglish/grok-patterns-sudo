@@ -1,0 +1,9 @@
+pattern: ^%{SUDO}$
+data: "foo : 3 incorrect password attempts ; TTY=pts/4 ; PWD=/home/foo ; USER=root ; COMMAND=/bin/ls"
+results:
+  sudo_user: foo
+  sudo_tty: pts/4
+  sudo_pwd: /home/foo
+  sudo_runas: root
+  sudo_command: /bin/ls
+  sudo_message: incorrect password attempts

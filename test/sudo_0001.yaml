@@ -1,0 +1,8 @@
+pattern: ^%{SUDO}$
+data: "nagios : TTY=unknown ; PWD=/ ; USER=root ; COMMAND=/usr/sbin/mptutil show volumes"
+results:
+  sudo_user: nagios
+  sudo_tty: unknown
+  sudo_pwd: /
+  sudo_runas: root
+  sudo_command: /usr/sbin/mptutil show volumes

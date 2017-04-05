@@ -1,0 +1,5 @@
+pattern: ^%{SUDO}$
+data: "failed to get password: authentication error"
+results:
+  sudo_message: failed to get password
+  sudo_reason: authentication error
