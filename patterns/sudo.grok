@@ -5,10 +5,14 @@ SUDO_USER %{NOTSPACE:sudo_user}
 SUDO_RUNAS USER=%{SUDO_USER:sudo_runas}
 
 SUDO_COMMAND_SUCCESSFUL %{SUDO_USER} : %{SUDO_TTY} ; %{SUDO_PWD} ; %{SUDO_RUNAS} ; %{SUDO_COMMAND}
-SUDO_INFO %{SUDO_COMMAND_SUCCESSFUL}
+SUDO_PAM_UNIX_SESSION_OPENED pam_unix\(sudo:session\): (?<sudo_message>session opened) for user %{NOTSPACE:sudo_runas} by %{SUDO_USER}\(uid=%{NUMBER}\)
+SUDO_PAM_UNIX_SESSION_CLOSED pam_unix\(sudo:session\): (?<sudo_message>session closed) for user %{NOTSPACE:sudo_runas}
+
+SUDO_INFO %{SUDO_COMMAND_SUCCESSFUL}|%{SUDO_PAM_UNIX_SESSION_OPENED}|%{SUDO_PAM_UNIX_SESSION_CLOSED}
 
 SUDO_INCORRECT_PASSWORD_ATTEMPTS %{SUDO_USER} : %{NUMBER} (?<sudo_message>incorrect password attempts) ; %{SUDO_TTY} ; %{SUDO_PWD} ; %{SUDO_RUNAS} ; %{SUDO_COMMAND}
 SUDO_FAILED_TO_GET_PASSWORD (?<sudo_message>failed to get password): (?<sudo_reason>authentication error)
+
 SUDO_ERROR %{SUDO_FAILED_TO_GET_PASSWORD}|%{SUDO_INCORRECT_PASSWORD_ATTEMPTS}
 
 SUDO %{SUDO_INFO}|%{SUDO_ERROR}

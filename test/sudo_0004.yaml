@@ -1,0 +1,6 @@
+pattern: ^%{SUDO}$
+data: "pam_unix(sudo:session): session opened for user root by foo(uid=0)"
+results:
+  sudo_message: session opened
+  sudo_runas: root
+  sudo_user: foo

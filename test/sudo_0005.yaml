@@ -1,0 +1,5 @@
+pattern: ^%{SUDO}$
+data: "pam_unix(sudo:session): session closed for user root"
+results:
+  sudo_message: session closed
+  sudo_runas: root
